@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <form method='POST' enctype='multipart/form-data' action='/restaurant/{{restid}}/{{menuid}}/edit'>
+        New Menu: <br>
+        <input type='text' name='menu_name' placeholder='{{editted_menu.name}}'><br>
+        Price:	<br>
+        <input type='text' name='menu_price' placeholder='{{editted_menu.price}}'><br>
+        Description: <br>
+        <input type='text' name='menu_desc' placeholder='{{editted_menu.description}}'><br>
+        Course: <br>
+        <input type='text' name='menu_course' placeholder='{{editted_menu.course}}'><br>	
+        <input type='submit' value='Submit'><br>
+        </form><br>
+
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <h1><strong> {{messages[0]}} </h1></strong>
+        {% endif %}
+        {% endwith %}
+
+        {% if get %}
+        <h1>Menu editted!</h1>
+        {% endif %}
+
+        <a href={{url}}>Return to menu</href>
+        <!--<a href='/restaurant'>Return to menu</href>    -->
+    </body>
+</html>

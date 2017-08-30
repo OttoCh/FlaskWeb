@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <form method='POST' enctype='multipart/form-data' action='/restaurant/{{restid}}/create'>
+        New Menu: <br>
+        <input type='text' name='menu_name'><br>
+        Price:	<br>
+        <input type='text' name='menu_price'><br>
+        Description: <br>
+        <input type='text' name='menu_desc'><br>
+        Course: <br>
+        <input type='text' name='menu_course'><br>
+        <input type='submit' value='Submit'><br>
+        </form><br>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li><strong> {{message}} </strong></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% if get %}
+        <br><h1>new menu added!</h1>
+        {% endif %}
+
+        <a href={{url}}>return to menu</href>
+    </body>
+</html>

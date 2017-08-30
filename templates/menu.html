@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class='pane'>
+            <div class='header'>
+            <h1>Restaurant name</h1>
+        </div>
+
+        {% for i in items %}
+        <div class = 'nameAndPrice'>
+            <span class='name'>
+            <p><strong>{{i.name}}</strong></p></span>
+            </br>
+            <span class='price'>
+            <p>{{i.price}}</p></span>
+            </br>
+            <span class='description'>
+            <p>{{i.description}}</p></span>
+            </br>
+            <span class='course'>
+            <p>{{i.course}}</p></span>
+            </br>
+        </div>
+
+        <div class='editdeletepane'>
+            <a href='/restaurant/{{restid}}/{{i.id}}/edit'>Edit menu</href></a>
+            </br>
+            <a href='/restaurant/{{restid}}/{{i.id}}/delete'>Delete menu</href></a><br><br>
+        </div>
+        {% endfor %}
+
+        <a href=/restaurant/{{restid}}/create>Add new menu</href><br>
+        <a href='/restaurant'>return to menu</href>
+            
+        </div>
+        </div>
+    </body>
+</html>
