@@ -4,6 +4,7 @@ from flask import render_template
 from flask import url_for
 from flask import flash
 from flask import jsonify
+from flask import redirect
 import requests
 
 from sqlalchemy import create_engine
@@ -107,6 +108,10 @@ def findLocation():
 	print format(request.remote_addr)
 	client_location = requests.get(geoip_url).json()
 	return render_template('location.html', client_location=client_location)
+
+@app.route('/redirect')
+def redirectPage():
+	return redirect(url_for('findLocation'), code=301)
 
 @app.errorhandler(404)
 def not_found(error):
